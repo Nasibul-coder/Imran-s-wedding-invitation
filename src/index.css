@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SK IMRAN ALI & SAINA SHEIKH — ROYAL WEDDING INVITATION
+   SK IMRAN ALI & SAINA SHAIKH — ROYAL WEDDING INVITATION
    Master Vanilla CSS Design System & Utility Tokens
    ========================================================================== */
 
@@ -48,10 +48,11 @@
   --ink-muted: #6f7c75;
 
   /* Typography Families */
-  --font-aloha: 'Aloha', 'Great Vibes', 'Alex Brush', cursive;
+  --font-cursive: 'Great Vibes', 'Alex Brush', cursive;
+  --font-aloha: 'Great Vibes', 'Alex Brush', cursive;
   --font-cinzel: 'Cinzel', serif;
   --font-cormorant: 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Aloha', 'Great Vibes', cursive;
+  --font-script: 'Great Vibes', 'Alex Brush', cursive;
   --font-script-alt: 'Alex Brush', cursive;
   --font-arabic: 'Amiri', 'Scheherazade New', serif;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -552,7 +553,8 @@ body {
 .space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
 
 /* Typography */
-.font-aloha { font-family: var(--font-aloha); }
+.font-cursive { font-family: var(--font-cursive); }
+.font-aloha { font-family: var(--font-cursive); }
 .font-serif { font-family: var(--font-cormorant); }
 .font-cinzel { font-family: var(--font-cinzel); }
 .font-sans { font-family: var(--font-sans); }

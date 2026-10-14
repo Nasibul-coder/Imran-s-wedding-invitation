@@ -63,12 +63,12 @@ export const PrintInvitationModal = ({ isOpen, onClose }) => {
             </p>
 
             <div className="my-4">
-              <h2 className="font-aloha text-2xl sm:text-3xl font-normal text-[#0c2e21] tracking-wide leading-tight">
+              <h2 className="font-cursive text-2xl sm:text-3xl font-normal text-[#0c2e21] tracking-wide leading-tight">
                 Sk Imran Ali
               </h2>
-              <div className="font-aloha text-2xl text-[#b89128] my-0.5">&amp;</div>
-              <h2 className="font-aloha text-2xl sm:text-3xl font-normal text-[#0c2e21] tracking-wide leading-tight">
-                Saina Sheikh
+              <div className="font-cursive text-2xl text-[#b89128] my-0.5">&amp;</div>
+              <h2 className="font-cursive text-2xl sm:text-3xl font-normal text-[#0c2e21] tracking-wide leading-tight">
+                Saina Shaikh
               </h2>
             </div>
 

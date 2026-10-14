@@ -199,7 +199,7 @@ export const WaxSeal = ({ size = 122, onClick, isBroken = false, className = '' 
     >
       <img
         src="/images/wedding_logo.png"
-        alt="Official Wedding Logo - Sk Imran Ali & Saina Sheikh"
+        alt="Official Wedding Logo - Sk Imran Ali & Saina Shaikh"
         className="w-full h-full object-contain pointer-events-none drop-shadow-xl"
         loading="eager"
         decoding="async"

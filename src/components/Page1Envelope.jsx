@@ -141,16 +141,16 @@ export const Page1Envelope = ({ onOpen, isOpening }) => {
           </div>
 
           <div className="mt-4">
-            <h1 className="font-aloha text-3xl sm:text-4xl md:text-[42px] text-amber-100 font-normal tracking-wide leading-tight drop-shadow">
+            <h1 className="font-cursive text-3xl sm:text-4xl md:text-[42px] text-amber-100 font-normal tracking-wide leading-tight drop-shadow">
               Sk Imran Ali
             </h1>
             <div className="flex items-center justify-center gap-2 my-1">
               <span className="w-8 h-[1px] bg-amber-400/40"></span>
-              <span className="font-aloha text-2xl sm:text-3xl text-amber-300">&amp;</span>
+              <span className="font-cursive text-2xl sm:text-3xl text-amber-300">&amp;</span>
               <span className="w-8 h-[1px] bg-amber-400/40"></span>
             </div>
-            <h2 className="font-aloha text-3xl sm:text-4xl md:text-[42px] text-amber-100 font-normal tracking-wide leading-tight drop-shadow">
-              Saina Sheikh
+            <h2 className="font-cursive text-3xl sm:text-4xl md:text-[42px] text-amber-100 font-normal tracking-wide leading-tight drop-shadow">
+              Saina Shaikh
             </h2>
           </div>
         </div>

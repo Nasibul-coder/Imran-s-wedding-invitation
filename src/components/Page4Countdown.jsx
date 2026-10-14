@@ -41,9 +41,9 @@ export const Page4Countdown = () => {
 
   // Google Calendar URL
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-    'Wedding of Sk Imran Ali & Saina Sheikh'
+    'Wedding of Sk Imran Ali & Saina Shaikh'
   )}&dates=20270108T113000Z/20270109T183000Z&details=${encodeURIComponent(
-    'Two-Day Wedding Celebrations of Sk Imran Ali & Saina Sheikh:\n• Friday, 8 Jan 2027: Nikah Ceremony (Departure 5:00 PM)\n• Saturday, 9 Jan 2027: Walima Celebration at Taiba Palace, Furfura Sharif, Hooghly.'
+    'Two-Day Wedding Celebrations of Sk Imran Ali & Saina Shaikh:\n• Friday, 8 Jan 2027: Nikah Ceremony (Departure 5:00 PM)\n• Saturday, 9 Jan 2027: Walima Celebration at Taiba Palace, Furfura Sharif, Hooghly.'
   )}&location=${encodeURIComponent('Taiba Palace, Furfura Sharif, Hooghly')}`;
 
   // Download .ics file
@@ -51,13 +51,13 @@ export const Page4Countdown = () => {
     const icsContent = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Sk Imran Ali & Saina Sheikh Wedding//EN',
+      'PRODID:-//Sk Imran Ali & Saina Shaikh Wedding//EN',
       'CALSCALE:GREGORIAN',
       'BEGIN:VEVENT',
       'DTSTART:20270108T113000Z',
       'DTEND:20270109T183000Z',
-      'SUMMARY:Wedding of Sk Imran Ali & Saina Sheikh',
-      'DESCRIPTION:Two-Day Wedding Celebrations of Sk Imran Ali & Saina Sheikh: Nikah on Friday 8 Jan 2027 & Walima on Saturday 9 Jan 2027 at Taiba Palace\\, Furfura Sharif.',
+      'SUMMARY:Wedding of Sk Imran Ali & Saina Shaikh',
+      'DESCRIPTION:Two-Day Wedding Celebrations of Sk Imran Ali & Saina Shaikh: Nikah on Friday 8 Jan 2027 & Walima on Saturday 9 Jan 2027 at Taiba Palace\\, Furfura Sharif.',
       'LOCATION:Taiba Palace\\, Furfura Sharif\\, Hooghly',
       'STATUS:CONFIRMED',
       'END:VEVENT',

@@ -87,7 +87,7 @@ export const Page8RSVP = () => {
 
     const text = encodeURIComponent(
       `Assalamu Alaikum!\n\n` +
-      `*Wedding RSVP for Sk Imran Ali & Saina Sheikh*\n` +
+      `*Wedding RSVP for Sk Imran Ali & Saina Shaikh*\n` +
       `• *Guest Name:* ${data.fullName}\n` +
       `• *Attendance:* ${attendanceText}\n` +
       (data.attendance === 'accept' ? `• *Events Attending:* ${eventName}\n` : '') +

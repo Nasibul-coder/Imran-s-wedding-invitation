@@ -125,10 +125,10 @@ export default function App() {
               <footer className="w-full pt-10 pb-16 px-6 text-center text-amber-200/80">
                 <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#dfb76c] to-transparent mx-auto mb-4" />
                 <p className="font-serif italic text-base sm:text-lg text-amber-100">
-                  "With immense gratitude from the Ali &amp; Sheikh Families"
+                  "With immense gratitude from the Ali &amp; Shaikh Families"
                 </p>
-                <p className="font-aloha text-xl sm:text-2xl text-amber-300 font-normal mt-2 tracking-wide">
-                  Sk Imran Ali &amp; Saina Sheikh
+                <p className="font-cursive text-xl sm:text-2xl text-amber-300 font-normal mt-2 tracking-wide">
+                  Sk Imran Ali &amp; Saina Shaikh
                 </p>
                 <p className="font-sans text-[10px] tracking-widest uppercase text-amber-400/60 mt-1">
                   8 &amp; 9 January 2027 • West Bengal, India

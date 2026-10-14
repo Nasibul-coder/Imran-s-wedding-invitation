@@ -56,7 +56,7 @@ export const Page2MainCard = () => {
             initial={{ scale: 0.95 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="font-aloha text-3xl sm:text-4xl md:text-[44px] font-normal text-[#0c2e21] tracking-wide leading-tight drop-shadow-sm"
+            className="font-cursive text-3xl sm:text-4xl md:text-[44px] font-normal text-[#0c2e21] tracking-wide leading-tight drop-shadow-sm"
           >
             Sk Imran Ali
           </motion.h2>
@@ -64,7 +64,7 @@ export const Page2MainCard = () => {
           {/* Ampersand Filigree */}
           <div className="flex items-center justify-center gap-3 my-2">
             <span className="w-12 h-[1px] bg-[#dfb76c]"></span>
-            <span className="font-aloha text-3xl sm:text-4xl text-[#b89128] font-normal leading-none select-none">
+            <span className="font-cursive text-3xl sm:text-4xl text-[#b89128] font-normal leading-none select-none">
               &amp;
             </span>
             <span className="w-12 h-[1px] bg-[#dfb76c]"></span>
@@ -75,9 +75,9 @@ export const Page2MainCard = () => {
             initial={{ scale: 0.95 }}
             whileInView={{ scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-aloha text-3xl sm:text-4xl md:text-[44px] font-normal text-[#0c2e21] tracking-wide leading-tight drop-shadow-sm"
+            className="font-cursive text-3xl sm:text-4xl md:text-[44px] font-normal text-[#0c2e21] tracking-wide leading-tight drop-shadow-sm"
           >
-            Saina Sheikh
+            Saina Shaikh
           </motion.h2>
 
           <div className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-28 h-[1px] bg-gradient-to-r from-transparent via-[#dfb76c] to-transparent"></div>
