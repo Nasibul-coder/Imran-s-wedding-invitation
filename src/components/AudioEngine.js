@@ -1,33 +1,16 @@
-// Official Royal Wedding Audio Engine
+// Official Wedding Background Music Engine
 // Track: "Wedding Bells (Kalyanam)" by A. R. Rahman
-// Loopable, touch-gated, smooth volume control with subscriber synchronization.
+// Single persistent HTMLAudioElement, continuous loop, 35% volume, graceful autoplay handling.
 
 class RoyalWeddingAudioEngine {
   constructor() {
     this.audio = null;
     this.isPlaying = false;
     this.audioSrc = '/audio/wedding_bells.mp3';
-    this.listeners = new Set();
-    this.volume = 0.55;
+    this.volume = 0.35; // 35% volume as requested
   }
 
-  // Subscribe UI components to music state changes
-  subscribe(listener) {
-    this.listeners.add(listener);
-    listener(this.isPlaying);
-    return () => this.listeners.delete(listener);
-  }
-
-  notify() {
-    this.listeners.forEach((fn) => {
-      try {
-        fn(this.isPlaying);
-      } catch (e) {
-        // safely ignore listener exceptions
-      }
-    });
-  }
-
+  // Initialize the single persistent HTMLAudioElement
   init() {
     if (!this.audio && typeof window !== 'undefined') {
       this.audio = new Audio(this.audioSrc);
@@ -37,64 +20,66 @@ class RoyalWeddingAudioEngine {
 
       this.audio.addEventListener('play', () => {
         this.isPlaying = true;
-        this.notify();
       });
 
       this.audio.addEventListener('pause', () => {
         this.isPlaying = false;
-        this.notify();
       });
 
       this.audio.addEventListener('ended', () => {
         this.isPlaying = false;
-        this.notify();
       });
 
       this.audio.addEventListener('error', (e) => {
-        console.warn('HTMLAudio error, falling back if needed:', e);
+        // Log internally, avoid throwing or breaking the page
+        console.warn('Background audio resource notification:', e);
         this.isPlaying = false;
-        this.notify();
       });
     }
   }
 
+  // Attempt to play audio smoothly without restarting if already playing
   play() {
     this.init();
     if (!this.audio) return false;
 
-    const promise = this.audio.play();
-    if (promise !== undefined) {
-      promise
-        .then(() => {
-          this.isPlaying = true;
-          this.notify();
-        })
-        .catch((err) => {
-          console.warn('Audio play was prevented or blocked by browser policy:', err);
-          this.isPlaying = false;
-          this.notify();
-        });
+    // Prevent duplicate playback if already actively playing
+    if (this.isPlaying && !this.audio.paused) {
+      return true;
     }
-    return true;
+
+    try {
+      const promise = this.audio.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            this.isPlaying = true;
+          })
+          .catch((err) => {
+            // Autoplay restrictions are normal; do not break UI or throw error
+            this.isPlaying = false;
+            if (err && err.name !== 'NotAllowedError') {
+              console.warn('Audio play status:', err.message);
+            }
+          });
+      }
+      return true;
+    } catch (e) {
+      this.isPlaying = false;
+      return false;
+    }
+  }
+
+  // Automatic playback attempt on site load
+  attemptAutoplay() {
+    return this.play();
   }
 
   pause() {
-    if (this.audio) {
+    if (this.audio && !this.audio.paused) {
       this.audio.pause();
     }
     this.isPlaying = false;
-    this.notify();
-    return false;
-  }
-
-  toggle() {
-    if (this.isPlaying) {
-      this.pause();
-      return false;
-    } else {
-      this.play();
-      return true;
-    }
   }
 
   setVolume(vol) {
@@ -113,4 +98,5 @@ class RoyalWeddingAudioEngine {
   }
 }
 
+// Export singleton instance so audio state persists across all components and re-renders
 export const royalAudio = new RoyalWeddingAudioEngine();

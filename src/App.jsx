@@ -10,6 +10,7 @@ import { Page4Countdown } from './components/Page4Countdown';
 import { Event1Nikah } from './components/Event1Nikah';
 import { Event2Walima } from './components/Event2Walima';
 import { PrintInvitationModal } from './components/PrintInvitationModal';
+import { royalAudio } from './components/AudioEngine';
 import { ChevronDown, Sparkles, Heart } from 'lucide-react';
 
 export default function App() {
@@ -17,6 +18,28 @@ export default function App() {
   const [isOpening, setIsOpening] = useState(false);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const [isCleanMode, setIsCleanMode] = useState(false);
+
+  // Attempt background music autoplay on load and fallback to first interaction
+  useEffect(() => {
+    // 1. Attempt autoplay immediately when website loads
+    royalAudio.attemptAutoplay();
+
+    // 2. If browser blocks autoplay with sound before user interaction,
+    // ensure playback begins smoothly upon the very first user interaction
+    const handleFirstInteraction = () => {
+      royalAudio.play();
+    };
+
+    window.addEventListener('click', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('keydown', handleFirstInteraction, { once: true, passive: true });
+
+    return () => {
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+    };
+  }, []);
 
   // Scroll to invitation card when opened
   const handleOpenEnvelope = () => {

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, RotateCcw, Printer, Video, Eye, EyeOff, Sparkles } from 'lucide-react';
-import { royalAudio } from './AudioEngine';
+import React from 'react';
+import { RotateCcw, Printer, Eye, EyeOff } from 'lucide-react';
 
 export const RoyalToolbar = ({
   isEnvelopeOpen,
@@ -9,19 +8,6 @@ export const RoyalToolbar = ({
   isCleanMode,
   setIsCleanMode,
 }) => {
-  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-
-  useEffect(() => {
-    const unsubscribe = royalAudio.subscribe((state) => {
-      setIsPlayingMusic(state);
-    });
-    return unsubscribe;
-  }, []);
-
-  const handleToggleMusic = () => {
-    royalAudio.toggle();
-  };
-
   if (isCleanMode) {
     return (
       <button
@@ -61,31 +47,6 @@ export const RoyalToolbar = ({
 
         {/* Right Action Icons */}
         <div className="flex items-center gap-2">
-          {/* Music Play/Pause */}
-          <button
-            onClick={handleToggleMusic}
-            className={`p-2 rounded-full border transition-all duration-300 backdrop-blur-md flex items-center gap-1.5 text-xs ${
-              isPlayingMusic
-                ? 'bg-amber-400 text-emerald-950 border-amber-200 shadow-[0_0_15px_rgba(212,175,55,0.5)]'
-                : 'bg-[#051a11]/85 text-amber-200 border-amber-400/30 hover:border-amber-400/60'
-            }`}
-            title={isPlayingMusic ? 'Mute Music' : 'Play Wedding Bells (Kalyanam) by A. R. Rahman'}
-            aria-label="Toggle Wedding Bells by A. R. Rahman"
-          >
-            {isPlayingMusic ? (
-              <>
-                <Volume2 size={15} className="animate-pulse" />
-                <span className="flex items-center gap-0.5 h-3">
-                  <span className="w-0.5 h-2 bg-emerald-950 animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="w-0.5 h-3 bg-emerald-950 animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="w-0.5 h-1.5 bg-emerald-950 animate-bounce" style={{ animationDelay: '300ms' }}></span>
-                </span>
-              </>
-            ) : (
-              <VolumeX size={15} />
-            )}
-          </button>
-
           {/* Replay Envelope */}
           {isEnvelopeOpen && (
             <button
