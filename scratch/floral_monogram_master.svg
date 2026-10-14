@@ -1,0 +1,383 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="100%" height="100%" className="w-full h-full select-none">
+  <defs>
+    <!-- Background Radial Vignette: Deep Emerald #063B32 to Deep Shadows #03251F -->
+    <radialGradient id="monogramBgVignette" cx="44%" cy="40%" r="68%">
+      <stop offset="0%" stopColor="#094a3d" />
+      <stop offset="35%" stopColor="#063B32" />
+      <stop offset="72%" stopColor="#042721" />
+      <stop offset="100%" stopColor="#03251F" />
+    </radialGradient>
+
+    <!-- Fine tactile paper grain filter -->
+    <filter id="royalPaperGrain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="4" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.055 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="in" />
+    </filter>
+
+    <!-- Primary Champagne Gold Metallic Gradient -->
+    <linearGradient id="champagneGoldGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stopColor="#FFF0B3" />
+      <stop offset="16%" stopColor="#E8C66A" />
+      <stop offset="44%" stopColor="#D4AF37" />
+      <stop offset="68%" stopColor="#98752C" />
+      <stop offset="84%" stopColor="#D4AF37" />
+      <stop offset="94%" stopColor="#E8C66A" />
+      <stop offset="100%" stopColor="#FFF0B3" />
+    </linearGradient>
+
+    <!-- Linear Antique Gold for Botanical Line Art -->
+    <linearGradient id="antiqueGoldLineGrad" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stopColor="#E8C66A" />
+      <stop offset="48%" stopColor="#D4AF37" />
+      <stop offset="100%" stopColor="#98752C" />
+    </linearGradient>
+
+    <!-- Embossed Gold Foil Physical Shadow -->
+    <filter id="embossedFoilFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1" floodColor="#01130d" floodOpacity="0.85" />
+      <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000000" floodOpacity="0.5" />
+    </filter>
+
+    <!-- Bevel Edge Highlight Gradient -->
+    <linearGradient id="bevelEdgeGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#FFF0B3" stopOpacity="0.9" />
+      <stop offset="50%" stopColor="#E8C66A" stopOpacity="0.6" />
+      <stop offset="100%" stopColor="#98752C" stopOpacity="0.3" />
+    </linearGradient>
+
+    <!-- Metallic Light Sweep Sheen Gradient -->
+    <linearGradient id="metallicSweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#FFF0B3" stopOpacity="0" />
+      <stop offset="40%" stopColor="#FFF0B3" stopOpacity="0" />
+      <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.6" />
+      <stop offset="60%" stopColor="#FFF0B3" stopOpacity="0" />
+      <stop offset="100%" stopColor="#FFF0B3" stopOpacity="0" />
+    </linearGradient>
+
+    <clipPath id="monogramLettersClip">
+      <!-- Combined Clip Path of S and I for the Sheen Sweep -->
+      <use href="#letter-S-path" />
+      <use href="#letter-I-stem-path" />
+      <use href="#letter-I-swash-path" />
+    </clipPath>
+  </defs>
+
+  <!-- 1. BACKGROUND CANVAS: Deep emerald-green #063B32 with Vignette #03251F -->
+  <rect width="1024" height="576" fill="url(#monogramBgVignette)" />
+
+  <!-- 2. Fine-grain tactile surface overlay -->
+  <rect width="1024" height="576" fill="#000000" opacity="0.04" filter="url(#royalPaperGrain)" pointerEvents="none" />
+
+  <!-- 3. Soft ambient directional glow from upper left -->
+  <circle cx="280" cy="180" r="320" fill="#0b5849" opacity="0.14" filter="blur(65px)" pointerEvents="none" />
+  <circle cx="780" cy="420" r="260" fill="#021a14" opacity="0.3" filter="blur(55px)" pointerEvents="none" />
+
+  <!-- ===================================================================== -->
+  <!-- 4. BOTANICAL LINE ART (BEHIND & AROUND MONOGRAM)                     -->
+  <!-- Antique gold delicate etched botanical lines                         -->
+  <!-- ===================================================================== -->
+  <g id="botanical-line-art" stroke="url(#antiqueGoldLineGrad)" fill="none" strokeLinecap="round" strokeLinejoin="round" opacity="0.86">
+
+    <!-- TOP: Climbing Stems and Delicate Buds / Berries -->
+    <g id="top-buds-spray">
+      <!-- Main curved stem rising behind top of S -->
+      <path d="M 508 200 C 510 162, 518 124, 532 90 C 538 76, 546 62, 558 52" strokeWidth="1.25" />
+      <path d="M 532 90 C 536 78, 544 68, 554 62" strokeWidth="1" />
+      <path d="M 525 118 C 536 108, 545 98, 550 86" strokeWidth="0.9" />
+      <path d="M 518 144 C 528 136, 538 128, 545 116" strokeWidth="0.9" />
+      <path d="M 512 174 C 524 166, 535 156, 540 144" strokeWidth="0.9" />
+
+      <!-- Branch to left of S crest -->
+      <path d="M 500 175 C 490 158, 484 144, 482 128" strokeWidth="0.95" />
+      <path d="M 484 144 C 478 136, 476 128, 478 120" strokeWidth="0.8" />
+
+      <!-- Delicate berries / floral pods -->
+      <circle cx="558" cy="52" r="2.4" fill="#D4AF37" fillOpacity="0.25" strokeWidth="0.85" />
+      <circle cx="554" cy="62" r="2.0" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.8" />
+      <circle cx="566" cy="58" r="1.7" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.75" />
+      <circle cx="550" cy="86" r="2.3" fill="#D4AF37" fillOpacity="0.25" strokeWidth="0.8" />
+      <circle cx="558" cy="90" r="1.9" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.75" />
+      <circle cx="545" cy="116" r="2.5" fill="#D4AF37" fillOpacity="0.25" strokeWidth="0.8" />
+      <circle cx="554" cy="120" r="1.8" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.75" />
+      <circle cx="540" cy="144" r="2.6" fill="#D4AF37" fillOpacity="0.25" strokeWidth="0.8" />
+      <circle cx="478" cy="120" r="2.1" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.8" />
+      <circle cx="482" cy="128" r="1.8" fill="#D4AF37" fillOpacity="0.2" strokeWidth="0.75" />
+
+      <!-- Delicate leaflets -->
+      <path d="M 534 85 C 538 80, 545 82, 543 89 C 541 94, 536 91, 534 85 Z" strokeWidth="0.75" fill="#D4AF37" fillOpacity="0.1" />
+      <path d="M 528 112 C 533 107, 539 109, 537 116 C 534 120, 529 117, 528 112 Z" strokeWidth="0.75" fill="#D4AF37" fillOpacity="0.1" />
+      <path d="M 522 138 C 527 133, 533 135, 531 142 C 528 145, 524 143, 522 138 Z" strokeWidth="0.75" fill="#D4AF37" fillOpacity="0.1" />
+    </g>
+
+    <!-- MIDDLE: Open Camellia / Wild Rose Blossom -->
+    <g id="middle-camellia" transform="translate(548, 204)">
+      <!-- Center stamen cluster with radiating filaments -->
+      <circle cx="0" cy="0" r="5" strokeWidth="1" fill="#D4AF37" fillOpacity="0.3" />
+      <circle cx="0" cy="0" r="2" fill="#FFF0B3" strokeWidth="0.6" />
+      <path d="M 0 -5 L -2 -11" strokeWidth="0.7" /><circle cx="-2" cy="-11" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M 3.5 -3.5 L 8 -8" strokeWidth="0.7" /><circle cx="8" cy="-8" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M 5 0 L 11 0" strokeWidth="0.7" /><circle cx="11" cy="0" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M 3.5 3.5 L 8 8" strokeWidth="0.7" /><circle cx="8" cy="8" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M 0 5 L 0 11" strokeWidth="0.7" /><circle cx="0" cy="11" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M -3.5 3.5 L -8 8" strokeWidth="0.7" /><circle cx="-8" cy="8" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M -5 0 L -11 0" strokeWidth="0.7" /><circle cx="-11" cy="0" r="0.9" fill="#FFF0B3" stroke="none" />
+      <path d="M -3.5 -3.5 L -8 -8" strokeWidth="0.7" /><circle cx="-8" cy="-8" r="0.9" fill="#FFF0B3" stroke="none" />
+
+      <!-- Petal 1: Top Petal -->
+      <path d="M -11 -6 C -19 -24, -9 -40, 5 -44 C 19 -47, 34 -34, 30 -15 C 27 -6, 21 -2, 12 -3" strokeWidth="1.15" />
+      <path d="M 0 -8 C 3 -24, 11 -34, 15 -40" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+      <path d="M -4 -7 C -10 -20, -3 -30, 3 -36" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+
+      <!-- Petal 2: Top-Right Petal -->
+      <path d="M 12 -3 C 26 -9, 44 -2, 50 11 C 54 26, 44 40, 29 40 C 19 40, 13 32, 9 21" strokeWidth="1.15" />
+      <path d="M 9 3 C 22 5, 34 11, 42 20" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+      <path d="M 7 -2 C 17 -2, 32 0, 38 7" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+
+      <!-- Petal 3: Bottom-Right Petal -->
+      <path d="M 9 21 C 15 36, 11 48, -2 52 C -15 55, -28 46, -30 33 C -31 23, -24 15, -13 12" strokeWidth="1.15" />
+      <path d="M 5 13 C 7 26, 5 38, -1 46" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+
+      <!-- Petal 4: Bottom-Left Petal -->
+      <path d="M -13 12 C -27 19, -42 13, -47 0 C -51 -13, -42 -27, -29 -28 C -21 -28, -15 -19, -11 -6" strokeWidth="1.15" />
+      <path d="M -9 7 C -22 7, -32 3, -40 -3" strokeWidth="0.55" strokeDasharray="3 2" opacity="0.65" />
+
+      <!-- Outer layered petal contours & veins -->
+      <path d="M 23 -30 C 38 -26, 50 -11, 48 6" strokeWidth="0.85" opacity="0.8" />
+      <path d="M 40 25 C 46 36, 40 48, 25 52" strokeWidth="0.85" opacity="0.8" />
+      <path d="M -24 42 C -36 40, -46 27, -44 13" strokeWidth="0.85" opacity="0.8" />
+    </g>
+
+    <!-- STEM & LEAVES CONNECTING BLOSSOM TO LOWER ROSE -->
+    <g id="middle-stem-and-leaves">
+      <!-- Main curved stem with thorns -->
+      <path d="M 545 250 C 535 285, 520 320, 500 355 C 492 370, 485 385, 478 400" strokeWidth="1.3" />
+      <!-- Thorny accents -->
+      <path d="M 528 298 C 524 300, 521 304, 522 306" strokeWidth="1" />
+      <path d="M 508 335 C 504 338, 501 342, 503 344" strokeWidth="1" />
+
+      <!-- Rosebud climbing to the left of the stem -->
+      <path d="M 515 320 C 500 315, 485 305, 475 290" strokeWidth="1.05" />
+      <!-- Bud calyx and petals -->
+      <path d="M 475 290 C 470 282, 468 272, 474 265 C 480 258, 488 262, 490 270 C 492 278, 485 286, 475 290 Z" strokeWidth="0.95" fill="#D4AF37" fillOpacity="0.12" />
+      <path d="M 473 280 C 468 275, 468 266, 472 260" strokeWidth="0.75" />
+      <path d="M 478 285 C 478 274, 482 265, 486 260" strokeWidth="0.75" />
+      <!-- Calyx sepals curling around bud -->
+      <path d="M 472 292 C 465 290, 460 282, 458 275" strokeWidth="0.85" />
+      <path d="M 477 291 C 482 293, 490 290, 495 285" strokeWidth="0.85" />
+
+      <!-- Rose leaves with serrations and veins on the right -->
+      <g id="leaf-right" transform="translate(535, 305) rotate(25)">
+        <path d="M 0 0 C 13 -9, 30 -9, 40 0 C 30 9, 13 9, 0 0 Z" strokeWidth="1.05" fill="#D4AF37" fillOpacity="0.08" />
+        <path d="M 0 0 L 40 0" strokeWidth="0.75" />
+        <path d="M 12 0 L 19 -4.5 M 12 0 L 19 4.5 M 23 0 L 30 -4.5 M 23 0 L 30 4.5" strokeWidth="0.55" />
+      </g>
+      <!-- Rose leaves on the left -->
+      <g id="leaf-left" transform="translate(488, 360) rotate(-35)">
+        <path d="M 0 0 C -11 -8, -26 -8, -34 0 C -26 8, -11 8, 0 0 Z" strokeWidth="1.05" fill="#D4AF37" fillOpacity="0.08" />
+        <path d="M 0 0 L -34 0" strokeWidth="0.75" />
+        <path d="M -11 0 L -17 -4 M -11 0 L -17 4 M -20 0 L -25 -4 M -20 0 L -25 4" strokeWidth="0.55" />
+      </g>
+    </g>
+
+    <!-- BOTTOM: Detailed English Cabbage Rose in Full Bloom -->
+    <g id="bottom-cabbage-rose" transform="translate(468, 412)">
+      <!-- Outer Sepals / Leaves underneath the rose -->
+      <path d="M -40 10 C -56 18, -67 31, -72 47 C -59 44, -46 33, -35 22" strokeWidth="0.95" fill="#D4AF37" fillOpacity="0.08" />
+      <path d="M -52 26 L -67 40" strokeWidth="0.55" />
+      <path d="M 36 15 C 52 25, 64 37, 70 52 C 57 47, 43 36, 33 24" strokeWidth="0.95" fill="#D4AF37" fillOpacity="0.08" />
+      <path d="M 47 29 L 62 44" strokeWidth="0.55" />
+      <path d="M -10 42 C -13 58, -9 71, 0 81 C 9 71, 13 58, 11 42" strokeWidth="0.95" fill="#D4AF37" fillOpacity="0.08" />
+      <path d="M 0 47 L 0 75" strokeWidth="0.55" />
+
+      <!-- Concentric, layered spiraling cabbage rose petals (etched engraving style) -->
+      <!-- Tier 1: Outer Petals -->
+      <path d="M -39 -16 C -50 -6, -54 15, -43 31 C -31 46, -15 50, 0 50 C 19 50, 37 44, 46 27 C 54 12, 48 -9, 36 -19" strokeWidth="1.25" />
+      <path d="M -33 21 C -23 38, -8 44, 8 44 C 25 44, 38 33, 42 19" strokeWidth="0.95" />
+
+      <!-- Tier 2: Mid-Outer Petals -->
+      <path d="M -37 -9 C -46 5, -42 23, -29 33 C -17 42, 2 42, 19 37 C 34 31, 42 17, 38 2" strokeWidth="1.05" />
+      <path d="M -27 -17 C -35 -13, -40 -2, -36 9 C -26 23, -10 28, 6 28 C 23 28, 36 19, 36 6" strokeWidth="0.95" />
+
+      <!-- Tier 3: Mid Petals Folding Inward -->
+      <path d="M -29 -5 C -33 8, -27 19, -15 25 C -2 29, 15 27, 27 19 C 33 11, 31 -2, 23 -11" strokeWidth="1.05" />
+      <path d="M -23 4 C -25 15, -17 21, -4 23 C 8 25, 19 21, 23 11" strokeWidth="0.9" />
+      <path d="M -19 -13 C -25 -7, -25 4, -19 13 C -10 19, 4 19, 15 15 C 23 11, 23 0, 17 -9" strokeWidth="0.9" />
+
+      <!-- Tier 4: Inner Swirling Rose Core -->
+      <path d="M -15 -2 C -17 5, -13 11, -4 13 C 5 15, 13 11, 15 5 C 17 -4, 11 -11, 2 -11 C -6 -11, -13 -7, -15 -2 Z" strokeWidth="1" fill="#D4AF37" fillOpacity="0.14" />
+      <path d="M -11 0 C -11 5, -7 8, 0 9 C 7 9, 10 6, 10 1 C 10 -4, 6 -8, 0 -8 C -5 -8, -9 -5, -11 0 Z" strokeWidth="0.85" fill="#FFF0B3" fillOpacity="0.18" />
+      <!-- Heart swirl -->
+      <path d="M -6 0 C -6 3, -3 5, 1 5 C 5 5, 6 3, 6 0 C 6 -3, 3 -5, 0 -5 C -3 -5, -5 -3, -5 0" strokeWidth="0.8" />
+      <circle cx="0" cy="0" r="1.6" fill="#FFF0B3" stroke="none" />
+
+      <!-- Fine Engraved Contour Hatching Lines -->
+      <path d="M -37 13 C -33 19, -29 25, -23 29" strokeWidth="0.55" opacity="0.65" />
+      <path d="M -31 5 C -27 11, -23 17, -17 21" strokeWidth="0.55" opacity="0.65" />
+      <path d="M 23 25 C 29 19, 33 13, 37 5" strokeWidth="0.55" opacity="0.65" />
+      <path d="M 17 29 C 23 23, 29 17, 31 11" strokeWidth="0.55" opacity="0.65" />
+      <path d="M -9 33 C -3 35, 3 35, 9 33" strokeWidth="0.55" opacity="0.65" />
+      <path d="M -13 37 C -5 39, 3 39, 11 37" strokeWidth="0.55" opacity="0.65" />
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- 5. CENTRAL MONOGRAM ("I & S")                                        -->
+  <!-- High-contrast serif letterforms, intertwined with embossed foil       -->
+  <!-- ===================================================================== -->
+  <g id="central-monogram" filter="url(#embossedFoilFilter)">
+
+    <!-- LETTER "S" (Upper-Left with Grand Circular Flourish Loop) -->
+    <path id="letter-S-path"
+      d="
+        M 494 126
+        C 486 114, 473 106, 452 106
+        C 423 106, 402 124, 402 149
+        C 402 171, 417 187, 442 203
+        C 476 225, 500 246, 500 282
+        C 500 323, 466 354, 420 354
+        C 391 354, 371 340, 360 321
+        C 348 298, 352 264, 374 242
+        C 395 221, 427 217, 450 232
+        C 467 243, 473 263, 467 280
+        C 462 296, 445 307, 428 305
+        C 413 303, 405 291, 407 278
+        C 409 267, 420 260, 431 264
+        C 439 266, 443 274, 441 280
+        C 439 285, 433 288, 427 287
+        C 423 286, 421 283, 422 280
+        C 423 277, 426 276, 429 277
+        C 425 282, 417 280, 417 271
+        C 417 259, 431 251, 443 257
+        C 457 263, 458 278, 452 291
+        C 443 308, 420 316, 401 307
+        C 380 297, 370 271, 377 246
+        C 385 215, 417 202, 444 214
+        C 456 220, 464 228, 466 233
+        C 453 218, 433 206, 414 192
+        C 391 176, 378 158, 378 136
+        C 378 105, 407 82, 446 82
+        C 476 82, 498 96, 508 114
+        C 514 125, 512 137, 504 141
+        C 498 143, 494 135, 494 126
+        Z
+      "
+      fill="url(#champagneGoldGrad)"
+      stroke="url(#bevelEdgeGold)"
+      strokeWidth="0.65"
+    />
+
+    <!-- LETTER "I" (Vertical Stately Column & Sweeping Swash Leg) -->
+    <!-- Intertwining naturally through S -->
+    <g id="letter-I-group">
+      <!-- Top Bracketed Serif and Vertical Column -->
+      <path id="letter-I-stem-path"
+        d="
+          M 488 238
+          L 548 238
+          C 542 238, 536 242, 532 248
+          C 530 252, 529 258, 529 265
+          L 529 390
+          C 529 398, 530 404, 534 408
+          C 538 412, 545 414, 552 414
+          L 552 418
+          L 484 418
+          L 484 414
+          C 492 414, 499 412, 503 408
+          C 507 404, 508 398, 508 390
+          L 508 265
+          C 508 258, 507 252, 504 248
+          C 500 242, 494 238, 488 238
+          Z
+        "
+        fill="url(#champagneGoldGrad)"
+        stroke="url(#bevelEdgeGold)"
+        strokeWidth="0.65"
+      />
+
+      <!-- Magnificent Sweeping Swash Leg to the Right -->
+      <!-- Starts from stem intersection at x=522, swoops down to y=435, sweeps up to needle point at x=728 -->
+      <path id="letter-I-swash-path"
+        d="
+          M 522 342
+          C 536 342, 556 352, 575 369
+          C 603 393, 636 426, 674 435
+          C 694 439, 714 435, 728 423
+          C 732 419, 734 414, 731 412
+          C 729 410, 723 412, 717 416
+          C 699 427, 677 425, 653 411
+          C 625 395, 595 365, 566 349
+          C 551 341, 537 338, 522 338
+          Z
+        "
+        fill="url(#champagneGoldGrad)"
+        stroke="url(#bevelEdgeGold)"
+        strokeWidth="0.6"
+      />
+    </g>
+
+    <!-- 3D Overlap Shadow (Where I passes in front of S lower curve) -->
+    <path
+      d="M 508 268 C 508 260, 514 256, 522 256 C 528 256, 529 262, 529 268 L 529 295 C 520 292, 515 292, 508 295 Z"
+      fill="#01130d"
+      opacity="0.38"
+    />
+
+    <!-- Dynamic Metallic Sheen Sweep Overlay (clipped to the letters) -->
+    <g clipPath="url(#monogramLettersClip)" pointerEvents="none">
+      <rect x="0" y="0" width="1024" height="576" fill="url(#metallicSweepGrad)" opacity="0.45" />
+    </g>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- 6. FLOATING BOTANICAL ACCENTS (TO THE RIGHT)                         -->
+  <!-- Subtle, delicate dandelion / thistle seed florets in negative space   -->
+  <!-- ===================================================================== -->
+  <g id="floating-botanical-accents" stroke="url(#antiqueGoldLineGrad)" fill="none" opacity="0.88">
+
+    <!-- Accent 1: Closer Floating Floret (x ≈ 725, y ≈ 355) -->
+    <g id="accent-floret-1" transform="translate(725, 355)">
+      <!-- Tiny stem -->
+      <path d="M 0 16 C -2 10, -4 4, -5 0" strokeWidth="0.9" />
+      <!-- Receptacle base -->
+      <path d="M -7 0 C -6 -2, -3 -3, 0 -2 C 2 -2, 4 0, 3 2 C 1 3, -4 3, -7 0 Z" strokeWidth="0.8" fill="#D4AF37" fillOpacity="0.4" />
+      <!-- Radiating bristles -->
+      <path d="M -5 -1 L -14 -12 M -14 -12 L -16 -15" strokeWidth="0.65" />
+      <path d="M -4 -2 L -10 -15 M -10 -15 L -11 -18" strokeWidth="0.65" />
+      <path d="M -2 -3 L -5 -16 M -5 -16 L -5 -20" strokeWidth="0.65" />
+      <path d="M 0 -3 L 2 -16 M 2 -16 L 3 -19" strokeWidth="0.65" />
+      <path d="M 2 -2 L 8 -14 M 8 -14 L 10 -17" strokeWidth="0.65" />
+      <path d="M 3 -1 L 12 -10 M 12 -10 L 15 -13" strokeWidth="0.65" />
+      <!-- Feathery tips -->
+      <circle cx="-16" cy="-15" r="0.85" fill="#FFF0B3" stroke="none" />
+      <circle cx="-11" cy="-18" r="0.85" fill="#FFF0B3" stroke="none" />
+      <circle cx="-5" cy="-20" r="0.85" fill="#FFF0B3" stroke="none" />
+      <circle cx="3" cy="-19" r="0.85" fill="#FFF0B3" stroke="none" />
+      <circle cx="10" cy="-17" r="0.85" fill="#FFF0B3" stroke="none" />
+      <circle cx="15" cy="-13" r="0.85" fill="#FFF0B3" stroke="none" />
+    </g>
+
+    <!-- Accent 2: Further Floating Floret (x ≈ 835, y ≈ 330) -->
+    <g id="accent-floret-2" transform="translate(835, 330) scale(0.82) rotate(15)">
+      <!-- Tiny stem -->
+      <path d="M 0 14 C -1 8, -3 3, -4 0" strokeWidth="0.85" />
+      <!-- Receptacle base -->
+      <path d="M -5 0 C -4 -2, -2 -2.5, 0 -1.5 C 2 -1.5, 3 0, 2 2 Z" strokeWidth="0.75" fill="#D4AF37" fillOpacity="0.35" />
+      <!-- Radiating bristles -->
+      <path d="M -4 -1 L -12 -10" strokeWidth="0.6" />
+      <path d="M -3 -2 L -8 -13" strokeWidth="0.6" />
+      <path d="M -1 -2.5 L -3 -15" strokeWidth="0.6" />
+      <path d="M 1 -2.5 L 3 -15" strokeWidth="0.6" />
+      <path d="M 2 -2 L 7 -12" strokeWidth="0.6" />
+      <path d="M 3 -1 L 10 -9" strokeWidth="0.6" />
+      <!-- Feathery tips -->
+      <circle cx="-12" cy="-10" r="0.75" fill="#FFF0B3" stroke="none" />
+      <circle cx="-8" cy="-13" r="0.75" fill="#FFF0B3" stroke="none" />
+      <circle cx="-3" cy="-15" r="0.75" fill="#FFF0B3" stroke="none" />
+      <circle cx="3" cy="-15" r="0.75" fill="#FFF0B3" stroke="none" />
+      <circle cx="7" cy="-12" r="0.75" fill="#FFF0B3" stroke="none" />
+      <circle cx="10" cy="-9" r="0.75" fill="#FFF0B3" stroke="none" />
+    </g>
+
+  </g>
+</svg>
