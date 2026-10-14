@@ -11,10 +11,38 @@ export const Event2Walima = () => {
   const walimaAddress = 'Taiba Palace, Furfura Sharif, Hooghly, West Bengal, India';
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(walimaAddress).then(() => {
+    const notifyCopied = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
-    });
+    };
+
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(walimaAddress)
+        .then(notifyCopied)
+        .catch(() => {
+          fallbackCopy(walimaAddress, notifyCopied);
+        });
+    } else {
+      fallbackCopy(walimaAddress, notifyCopied);
+    }
+  };
+
+  const fallbackCopy = (text, callback) => {
+    try {
+      const el = document.createElement('textarea');
+      el.value = text;
+      el.setAttribute('readonly', '');
+      el.style.position = 'fixed';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      el.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      callback?.();
+    } catch (e) {
+      // safe fallback
+    }
   };
 
   return (

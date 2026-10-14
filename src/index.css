@@ -84,7 +84,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  min-height: -webkit-fill-available;
+  min-height: 100dvh;
   font-family: var(--font-cormorant);
   background: var(--bg-deep);
   color: var(--ivory-100);
@@ -120,6 +120,7 @@ body {
 /* Master Layout Stage */
 .royal-app-stage {
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -147,6 +148,7 @@ body {
   width: 100%;
   max-width: 520px;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   z-index: 2;
   margin: 0 auto;
@@ -263,6 +265,9 @@ body {
   border: 1px solid var(--gold-highlight);
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
@@ -271,6 +276,8 @@ body {
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .royal-btn-gold:hover {
@@ -296,12 +303,17 @@ body {
   border: 1px solid var(--gold-border);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
   transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .royal-btn-emerald:hover {
@@ -353,7 +365,7 @@ body {
 .w-full { width: 100%; }
 .h-full { height: 100%; }
 .h-auto { height: auto; }
-.min-h-screen { min-height: 100vh; }
+.min-h-screen { min-height: 100vh; min-height: 100dvh; }
 .max-w-\[200px\] { max-width: 200px; }
 .max-w-\[220px\] { max-width: 220px; }
 .max-w-\[240px\] { max-width: 240px; }

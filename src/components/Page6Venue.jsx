@@ -10,10 +10,38 @@ export const Page6Venue = () => {
   const googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=Taiba+Palace+Furfura+Sharif+Hooghly';
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(venueAddress).then(() => {
+    const notifyCopied = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
-    });
+    };
+
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(venueAddress)
+        .then(notifyCopied)
+        .catch(() => {
+          fallbackCopy(venueAddress, notifyCopied);
+        });
+    } else {
+      fallbackCopy(venueAddress, notifyCopied);
+    }
+  };
+
+  const fallbackCopy = (text, callback) => {
+    try {
+      const el = document.createElement('textarea');
+      el.value = text;
+      el.setAttribute('readonly', '');
+      el.style.position = 'fixed';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      el.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      callback?.();
+    } catch (e) {
+      // safe fallback
+    }
   };
 
   return (

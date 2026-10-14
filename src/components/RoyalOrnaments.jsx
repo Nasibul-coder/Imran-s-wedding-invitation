@@ -194,6 +194,8 @@ export const WaxSeal = ({ size = 122, onClick, isBroken = false, className = '' 
         width: `${width}px`,
         height: `${height}px`,
         maxWidth: '100%',
+        touchAction: 'manipulation',
+        WebkitTapHighlightColor: 'transparent',
       }}
       title="Click to Open Invitation"
     >

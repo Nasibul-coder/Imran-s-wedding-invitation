@@ -32,11 +32,13 @@ export default function App() {
 
     window.addEventListener('click', handleFirstInteraction, { once: true, passive: true });
     window.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('touchend', handleFirstInteraction, { once: true, passive: true });
     window.addEventListener('keydown', handleFirstInteraction, { once: true, passive: true });
 
     return () => {
       window.removeEventListener('click', handleFirstInteraction);
       window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('touchend', handleFirstInteraction);
       window.removeEventListener('keydown', handleFirstInteraction);
     };
   }, []);
@@ -47,15 +49,23 @@ export default function App() {
     setTimeout(() => {
       setIsEnvelopeOpen(true);
       setIsOpening(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 700);
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+    }, 600);
   };
 
   const handleReplayEnvelope = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {
+      window.scrollTo(0, 0);
+    }
     setTimeout(() => {
       setIsEnvelopeOpen(false);
-    }, 300);
+    }, 250);
   };
 
   return (
@@ -90,8 +100,8 @@ export default function App() {
               key="envelope-page"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0, scale: 1.08, filter: 'blur(8px)' }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, scale: 1.04 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
               className="w-full min-h-screen flex items-center justify-center envelope-screen"
             >
               <Page1Envelope onOpen={handleOpenEnvelope} isOpening={isOpening} />

@@ -13,28 +13,44 @@ class RoyalWeddingAudioEngine {
   // Initialize the single persistent HTMLAudioElement
   init() {
     if (!this.audio && typeof window !== 'undefined') {
-      this.audio = new Audio(this.audioSrc);
-      this.audio.loop = true;
-      this.audio.preload = 'auto';
-      this.audio.volume = this.volume;
+      try {
+        this.audio = new Audio(this.audioSrc);
+        this.audio.loop = true;
+        this.audio.preload = 'auto';
+        this.audio.playsInline = true;
+        if (typeof this.audio.setAttribute === 'function') {
+          this.audio.setAttribute('playsinline', 'true');
+          this.audio.setAttribute('webkit-playsinline', 'true');
+        }
 
-      this.audio.addEventListener('play', () => {
-        this.isPlaying = true;
-      });
+        // On iOS Safari volume is read-only / hardware-controlled; catch potential throws
+        try {
+          this.audio.volume = this.volume;
+        } catch (volErr) {
+          // Ignore volume restrictions on iOS
+        }
 
-      this.audio.addEventListener('pause', () => {
-        this.isPlaying = false;
-      });
+        this.audio.addEventListener('play', () => {
+          this.isPlaying = true;
+        });
 
-      this.audio.addEventListener('ended', () => {
-        this.isPlaying = false;
-      });
+        this.audio.addEventListener('pause', () => {
+          this.isPlaying = false;
+        });
 
-      this.audio.addEventListener('error', (e) => {
-        // Log internally, avoid throwing or breaking the page
-        console.warn('Background audio resource notification:', e);
-        this.isPlaying = false;
-      });
+        this.audio.addEventListener('ended', () => {
+          this.isPlaying = false;
+        });
+
+        this.audio.addEventListener('error', (e) => {
+          // Log internally, avoid throwing or breaking the page
+          console.warn('Background audio resource notification:', e);
+          this.isPlaying = false;
+        });
+      } catch (initErr) {
+        console.warn('Audio initialization notice:', initErr);
+        this.audio = null;
+      }
     }
   }
 
@@ -85,7 +101,11 @@ class RoyalWeddingAudioEngine {
   setVolume(vol) {
     this.volume = Math.max(0, Math.min(1, vol));
     if (this.audio) {
-      this.audio.volume = this.volume;
+      try {
+        this.audio.volume = this.volume;
+      } catch (e) {
+        // Safe ignore on iOS
+      }
     }
   }
 

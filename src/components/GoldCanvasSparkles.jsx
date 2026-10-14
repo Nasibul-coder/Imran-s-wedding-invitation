@@ -25,8 +25,9 @@ export const GoldCanvasSparkles = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Particle count: optimal for mobile & desktop
-    const count = Math.min(45, Math.floor(width / 25));
+    // Particle count: optimal for mobile (lightweight) & desktop
+    const isMobile = width < 640;
+    const count = isMobile ? 22 : Math.min(40, Math.floor(width / 28));
     const particles = [];
 
     const goldColors = [
@@ -40,12 +41,12 @@ export const GoldCanvasSparkles = () => {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.8 + 0.6,
+        radius: Math.random() * 1.6 + 0.6,
         colorPrefix: goldColors[Math.floor(Math.random() * goldColors.length)],
-        baseAlpha: Math.random() * 0.6 + 0.2,
+        baseAlpha: Math.random() * 0.5 + 0.2,
         alphaOffset: Math.random() * Math.PI * 2,
-        speedY: Math.random() * 0.4 + 0.15,
-        speedX: (Math.random() - 0.5) * 0.25,
+        speedY: Math.random() * 0.35 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.2,
         pulseSpeed: Math.random() * 0.02 + 0.01,
       });
     }
@@ -73,8 +74,9 @@ export const GoldCanvasSparkles = () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `${p.colorPrefix}${safeAlpha})`;
-        ctx.shadowBlur = p.radius * 4;
-        ctx.shadowColor = 'rgba(223, 183, 108, 0.6)';
+        // Moderate shadow blur to prevent WebKit GPU memory spikes on iOS
+        ctx.shadowBlur = isMobile ? 2 : p.radius * 2;
+        ctx.shadowColor = 'rgba(223, 183, 108, 0.45)';
         ctx.fill();
       }
 

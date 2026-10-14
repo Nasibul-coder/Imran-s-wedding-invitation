@@ -48,7 +48,7 @@ export const Page1Envelope = ({ onOpen, isOpening }) => {
         initial={{ opacity: 0, scale: 0.94, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-[440px] aspect-[4/5] sm:aspect-[4/5.2] rounded-2xl p-6 sm:p-8 flex flex-col justify-between items-center text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_2px_1px_rgba(223,183,108,0.4)] border border-amber-400/40 bg-gradient-to-b from-[#072a1c] via-[#041d13] to-[#02100a] overflow-hidden"
+        className="relative w-full max-w-[440px] aspect-[4/5] rounded-2xl p-6 sm:p-8 flex flex-col justify-between items-center text-center shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_2px_1px_rgba(223,183,108,0.4)] border border-amber-400/40 bg-gradient-to-b from-[#072a1c] via-[#041d13] to-[#02100a] overflow-hidden"
       >
         {/* Delicate Corner Ornaments */}
         <CornerOrnament position="top-left" />
@@ -162,10 +162,11 @@ export const Page1Envelope = ({ onOpen, isOpening }) => {
           </p>
 
           <motion.button
+            type="button"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
             onClick={triggerOpen}
-            className="royal-btn-gold w-full max-w-[260px] py-3.5 text-xs sm:text-sm font-semibold tracking-[0.16em] group cursor-pointer"
+            className="royal-btn-gold w-full max-w-[260px] py-3.5 text-xs sm:text-sm font-semibold tracking-[0.16em] group cursor-pointer select-none"
           >
             <MailOpen size={16} className="text-emerald-950 transition-transform group-hover:rotate-12" />
             <span>Open Invitation</span>
