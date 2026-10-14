@@ -11,9 +11,15 @@ export const RoyalToolbar = ({
 }) => {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
 
+  useEffect(() => {
+    const unsubscribe = royalAudio.subscribe((state) => {
+      setIsPlayingMusic(state);
+    });
+    return unsubscribe;
+  }, []);
+
   const handleToggleMusic = () => {
-    const newState = royalAudio.toggle();
-    setIsPlayingMusic(newState);
+    royalAudio.toggle();
   };
 
   if (isCleanMode) {
@@ -63,8 +69,8 @@ export const RoyalToolbar = ({
                 ? 'bg-amber-400 text-emerald-950 border-amber-200 shadow-[0_0_15px_rgba(212,175,55,0.5)]'
                 : 'bg-[#051a11]/85 text-amber-200 border-amber-400/30 hover:border-amber-400/60'
             }`}
-            title={isPlayingMusic ? 'Mute Music' : 'Play Royal Wedding Melodies'}
-            aria-label="Toggle Royal Music"
+            title={isPlayingMusic ? 'Mute Music' : 'Play Wedding Bells (Kalyanam) by A. R. Rahman'}
+            aria-label="Toggle Wedding Bells by A. R. Rahman"
           >
             {isPlayingMusic ? (
               <>

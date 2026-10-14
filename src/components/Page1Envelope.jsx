@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, MailOpen } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WaxSeal, IslamicStar, CornerOrnament } from './RoyalOrnaments';
+import { royalAudio } from './AudioEngine';
 
 export const Page1Envelope = ({ onOpen, isOpening }) => {
   const [sealCracked, setSealCracked] = useState(false);
@@ -10,6 +11,13 @@ export const Page1Envelope = ({ onOpen, isOpening }) => {
   const triggerOpen = () => {
     if (isOpening) return;
     setSealCracked(true);
+
+    // Play "Wedding Bells (Kalyanam)" by A. R. Rahman
+    try {
+      royalAudio.play();
+    } catch (e) {
+      // safe fallback
+    }
 
     // Celebratory golden sparkles burst
     try {
